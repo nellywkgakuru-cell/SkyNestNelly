@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Untitled 1</title>
+</head>
+
+<body>
+
+<video id="bgVideo" autoplay muted playsinline>
+    <source src="hotel room.mp4" type="video/mp4">
+</video>
+
+<script>
+
+var videos = [
+    "hotel room.mp4",
+    "pool view.mp4",
+    "balcony view.mp4"
+];
+
+var currentVideo = 0;
+
+var player = document.getElementById("bgVideo");
+
+player.addEventListener("ended", function() {
+
+    currentVideo++;
+
+    if (currentVideo >= videos.length) {
+        currentVideo = 0;
+    }
+
+    player.src = videos[currentVideo];
+    player.load();
+    player.play();
+
+});
+
+</script>
+</body>
+
+</html>
